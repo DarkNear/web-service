@@ -4,27 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>INPUT MAHASISWA</title>
+    <title>INPUT PENGURUS PANTI</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </head>
 <body>
     <br>
     <div class="container">
-        <h2>Tambah Mahasiswa</h2>
+        <h2>Tambah Pengurus Panti</h2>
         <form action="<?= base_url('client/create'); ?>" method="POST">
             <table class="table">
                 <tr>
-                    <th width="200px">Nim Mahasiswa</th>
-                    <th><input type="text" name="nim" class="form-control"></th>
+                    <th width="200px">ID pengurus</th>
+                    <th><input type="text" name="id" class="form-control"></th>
                 </tr>
                 <tr>
-                    <th width="200px">Nama Mahasiswa</th>
+                    <th width="200px">Nama Pengurus</th>
                     <th><input type="text" name="nama" class="form-control"></th>
                 </tr>
                 <tr>
-                    <th width="200px">Prodi Mahasiswa</th>
-                    <th><input type="text" name="prodi" class="form-control"></th>
+                    <th width="200px">Alamat</th>
+                    <th><input type="text" name="alamat" class="form-control"></th>
+                </tr>
+                <tr>
+                    <th width="200px">No Telepon</th>
+                    <th><input type="text" name="telp" class="form-control"></th>
                 </tr>
                 <tr>
                     <td></td>

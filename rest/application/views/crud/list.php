@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Pengurus Panti</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
@@ -13,7 +13,7 @@
     <?php echo $this->session->flashdata('hasil'); ?>
 
     <div class="container">
-        <h1>MAHASISWA FTI</h1>
+        <h1>PENGURUS PANTI</h1>
 
         <div class="text-right">
             <a href="<?= base_url('client/add'); ?>"><button class="btn btn-primary">TAMBAH DATA</button></a>
@@ -24,9 +24,9 @@
                 <table class="table table-bordered">
                     <tr>
                         <th>No</th>
-                        <th>Nim</th>
-                        <th>Nama Mahasiswa</th>
-                        <th>Prodi</th>
+                        <th>NAMA</th>
+                        <th>ALAMAT</th>
+                        <th>NO TELEPON</th>
                         <th>--</th>
                     </tr>
                         <?php 
@@ -34,12 +34,12 @@
                         foreach($data as $dt){ ?>
                         <tr>
                             <td><?= $no++; ?></td>
-                            <td><?= $dt->nim; ?></td>
                             <td><?= $dt->nama; ?></td>
-                            <td><?= $dt->prodi; ?></td>
+                            <td><?= $dt->alamat; ?></td>
+                            <td><?= $dt->telp; ?></td>
                             <td>
-                                <a href="<?= base_url('client/edit/'.$dt->nim); ?>"><button class="btn btn-sm btn-info">edit</button></a>
-                                <a href="<?= base_url('client/delete/'.$dt->nim); ?>"><button class="btn btn-sm btn-danger">delete</button></a>
+                                <a href="<?= base_url('client/edit/'.$dt->id); ?>"><button class="btn btn-sm btn-info">edit</button></a>
+                                <a href="<?= base_url('client/delete/'.$dt->id); ?>"><button class="btn btn-sm btn-danger">delete</button></a>
                             </td>
                         </tr>
                         <?php } ?>

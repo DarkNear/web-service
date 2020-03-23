@@ -10,12 +10,12 @@ class Api extends RestController {
 	}
 	public function index_get(){
 		// testing response
-		$nim = $this->get('nim');
-        if ($nim == '') {
-            $kontak = $this->db->get('mahasiswa')->result();
+		$id = $this->get('id');
+        if ($id == '') {
+            $kontak = $this->db->get('panti')->result();
         } else {
-            $this->db->where('nim', $nim);
-            $kontak = $this->db->get('mahasiswa')->result();
+            $this->db->where('id', $id);
+            $kontak = $this->db->get('panti')->result();
         }
         $this->response($kontak, 200);
     }
@@ -23,11 +23,12 @@ class Api extends RestController {
     public function index_post()
     {
         $data = array(
-            'nim'  => $this->post('nim'),
+            'id'  => $this->post('id'),
             'nama'  => $this->post('nama'),
-            'prodi' => $this->post('prodi')
+            'alamat' => $this->post('alamat'),
+            'telp' => $this->post('telp')
         );
-        $insert = $this->db->insert('mahasiswa', $data);
+        $insert = $this->db->insert('panti', $data);
         if ($insert) {
             $this->response($data, 200);
         } else {
@@ -36,14 +37,15 @@ class Api extends RestController {
     }
 
     public function index_put() {
-        $nim = $this->put('nim');
+        $nim = $this->put('id');
         $data = array(
-            'nim'  => $this->put('nim'),
+            'id'  => $this->put('id'),
             'nama'  => $this->put('nama'),
-            'prodi' => $this->put('prodi')
+            'alamat' => $this->put('alamat'),
+            'telp' => $this->put('telp')
         );
-        $this->db->where('nim', $nim);
-        $update = $this->db->update('mahasiswa', $data);
+        $this->db->where('id', $id);
+        $update = $this->db->update('panti', $data);
         if ($update) {
             $this->response($data, 200);
         } else {
@@ -52,10 +54,10 @@ class Api extends RestController {
     }
 
     public function index_delete() {
-        $id = $this->delete('nim');
+        $id = $this->delete('id');
         
-        $this->db->where('nim', $id);
-        $delete = $this->db->delete('mahasiswa');
+        $this->db->where('id', $id);
+        $delete = $this->db->delete('panti');
         if ($delete) {
             $this->response(array('status' => 'success'.$id), 201);
         } else {

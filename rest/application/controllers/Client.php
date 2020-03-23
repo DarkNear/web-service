@@ -11,7 +11,7 @@ Class Client extends CI_Controller{
         // Create a client with a base URI
         $client = new GuzzleHttp\Client();
         // Send a request to https://foo.com/api/test
-        $response = $client->request('GET', 'https://kahf13.000webhostapp.com/rest-api');
+        $response = $client->request('GET', 'https://darknear.000webhostapp.com/rest/api');
         $data['data'] = json_decode($response->getBody()->getContents());
         $this->load->view('crud/list',$data);
     }
@@ -24,11 +24,12 @@ Class Client extends CI_Controller{
         // Create a client with a base URI
         $client = new GuzzleHttp\Client();
         // Send a request to https://foo.com/api/test
-        $response = $client->request('POST', 'https://kahf13.000webhostapp.com/rest-api',[
+        $response = $client->request('POST', 'https://darknear.000webhostapp.com/rest/api',[
             'form_params' => [
-                'nim'=>$this->input->post('nim'),
+                'id'=>$this->input->post('id'),
                 'nama'=>$this->input->post('nama'),
-                'prodi'=>$this->input->post('prodi')
+                'alamat'=>$this->input->post('alamat'),
+                'telp'=>$this->input->post('telp')
             ]
         ]);
         // echo $response->getBody()->getContents();
@@ -40,9 +41,9 @@ Class Client extends CI_Controller{
         // Create a client with a base URI
         $client = new GuzzleHttp\Client();
         // Send a request to https://foo.com/api/test
-        $response = $client->request('GET', 'https://kahf13.000webhostapp.com/rest-api',[
+        $response = $client->request('GET', 'https://darknear.000webhostapp.com/rest/api',[
             'query' => [
-                'nim'=>$id
+                'id'=>$id
             ]
         ]);
         $data['data'] = json_decode($response->getBody()->getContents())[0];
@@ -55,28 +56,30 @@ Class Client extends CI_Controller{
         // Create a client with a base URI
         $client = new GuzzleHttp\Client();
         // Send a request to https://foo.com/api/test
-        $response = $client->request('PUT', 'https://kahf13.000webhostapp.com/rest-api',[
+        $response = $client->request('PUT', 'https://darknear.000webhostapp.com/rest/api',[
             'json' => [
-                'nim'=>$this->input->post('nim'),
+                'id'=>$this->input->post('id'),
                 'nama'=>$this->input->post('nama'),
-                'prodi'=>$this->input->post('prodi'),
+                'alamat'=>$this->input->post('alamat'),
+                'telp'=>$this->input->post('telp')
             ]
         ]);
         // echo $response->getBody()->getContents();
         return redirect(base_url('client'),'refresh');
     }
-    
-    // delete data mahasiswa
-    function delete($id){
+  
+    // delete data 
+   function delete($id){
         // Create a client with a base URI
         $client = new GuzzleHttp\Client();
         // Send a request to https://foo.com/api/test
-        $response = $client->request('DELETE', 'https://kahf13.000webhostapp.com/rest-api',[
+        $response = $client->request('DELETE', 'https://darknear.000webhostapp.com/rest/api',[
             'form_params' => [
-                'nim'=>$id,
+                'id'=>$id,
             ]
         ]);
         // echo $response->getBody()->getContents();
         return redirect(base_url('client'),'refresh');
     }
+
 }
